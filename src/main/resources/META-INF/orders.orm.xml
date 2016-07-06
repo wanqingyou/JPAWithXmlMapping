@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm    
+http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+    version="1.0">
+    <description>Orders JPA XML mapping</description>
+    <entity class="com.jpa.entity.Orders" name="Orders" access="FIELD">        
+        <table name="ORDERS"/>
+        <attributes>
+            <id name="order_ID">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="orderDate">
+                <column name="order_Date"/>
+                <temporal>DATE</temporal>
+            </basic>
+            <basic name="amount">
+            	<column name="amount"/>
+            </basic>
+            <many-to-one name="customer" fetch="LAZY">
+            	<join-column name="customer_ID"/>
+            </many-to-one>
+        </attributes>
+   </entity>
+</entity-mappings>
